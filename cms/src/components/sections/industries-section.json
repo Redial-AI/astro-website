@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_sections_industries_sections",
+    "info": {
+        "displayName": "Industries Section",
+        "description": "A section displaying industries"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Industries"
+        },
+        "industries": {
+            "type": "text"
+        }
+    }
+}

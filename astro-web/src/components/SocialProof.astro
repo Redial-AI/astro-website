@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  logos?: string[];
+}
+
+const { title, logos = [] } = Astro.props;
+---
+
+<section class="strip" aria-label={title}>
+  <div class="container">
+    <p class="strip-label">{title}</p>
+    {logos.length > 0 ? (
+      <div class="logo-grid">
+        {logos.map((logo: string, i: number) => (
+          <div class="logo-item">
+            <img src={logo} alt="Trusted brand logo" width="140" height="44" />
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p class="strip-note">Upload partner logos in Strapi to display this proof bar.</p>
+    )}
+  </div>
+</section>

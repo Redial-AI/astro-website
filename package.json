@@ -1,0 +1,16 @@
+{
+  "name": "redialbpo-landing-stack",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "cms",
+    "web",
+    "astro-web"
+  ],
+  "scripts": {
+    "dev:cms": "npm run develop --workspace cms",
+    "dev:web": "npm run dev --workspace web",
+    "dev:astro": "npm run dev --workspace astro-web",
+    "build": "npm run build --workspace cms && npm run build --workspace web"
+  }
+}

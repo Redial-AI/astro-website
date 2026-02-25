@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_offices",
+  "info": {
+    "displayName": "Office",
+    "description": "Delivery center details"
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "timezoneCoverage": {
+      "type": "string"
+    },
+    "languages": {
+      "type": "string"
+    },
+    "focus": {
+      "type": "string"
+    }
+  }
+}

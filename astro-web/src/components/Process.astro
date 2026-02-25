@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  steps?: { stepNumber: number; title: string; description: string }[];
+}
+
+const { title, steps = [] } = Astro.props;
+---
+
+<section class="section-block section-muted" id="process">
+  <div class="container">
+    <h2>{title}</h2>
+    <ol class="step-list">
+      {steps.map((step) => (
+        <li class="step-item">
+          <span class="step-index">{String(step.stepNumber).padStart(2, "0")}</span>
+          <div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

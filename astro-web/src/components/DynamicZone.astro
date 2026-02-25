@@ -1,0 +1,39 @@
+---
+import Hero from "./Hero.astro";
+import SocialProof from "./SocialProof.astro";
+import ValueProps from "./ValueProps.astro";
+import Metrics from "./Metrics.astro";
+import Services from "./Services.astro";
+import Process from "./Process.astro";
+import Industries from "./Industries.astro";
+import Testimonials from "./Testimonials.astro";
+import Faq from "./Faq.astro";
+import Offices from "./Offices.astro";
+import CtaPanel from "./CtaPanel.astro";
+import type { SiteSettings } from "../types/landing";
+
+interface Props {
+  blocks: any[];
+  settings?: SiteSettings;
+}
+
+const { blocks = [], settings } = Astro.props;
+---
+
+{blocks.map((block: any) => {
+  const c = block.__component;
+  return (
+    c === "sections.hero" ? <Hero {...block} settings={settings} /> :
+    c === "sections.social-proof-section" ? <SocialProof {...block} /> :
+    c === "sections.value-props-section" ? <ValueProps {...block} /> :
+    c === "sections.metrics-section" ? <Metrics {...block} /> :
+    c === "sections.services-section" ? <Services {...block} /> :
+    c === "sections.process-section" ? <Process {...block} /> :
+    c === "sections.industries-section" ? <Industries {...block} /> :
+    c === "sections.testimonials-section" ? <Testimonials {...block} /> :
+    c === "sections.faq-section" ? <Faq {...block} /> :
+    c === "sections.offices-section" ? <Offices {...block} /> :
+    c === "sections.cta-panel" ? <CtaPanel {...block} /> :
+    null
+  );
+})}

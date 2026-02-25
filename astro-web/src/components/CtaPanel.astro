@@ -1,0 +1,34 @@
+---
+interface Props {
+  headline: string;
+  description: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  headline,
+  description,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+} = Astro.props;
+---
+
+<section class="section-block">
+  <div class="container">
+    <div class="cta-shell">
+      <h2>{headline}</h2>
+      <p>{description}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={primaryCtaHref}>{primaryCtaLabel}</a>
+        {secondaryCtaLabel && secondaryCtaHref && (
+          <a class="button button-secondary" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

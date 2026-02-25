@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_sections_metrics_sections",
+    "info": {
+        "displayName": "Metrics Section",
+        "description": "A section displaying metrics"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Delivery outcomes"
+        },
+        "metrics": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.metric"
+        }
+    }
+}

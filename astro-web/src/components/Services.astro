@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  intro?: string;
+  services?: { title: string; description: string; idealFor?: string; outcome?: string }[];
+}
+
+const { title, intro, services = [] } = Astro.props;
+---
+
+<section class="section-block" id="services">
+  <div class="container">
+    <h2>{title}</h2>
+    {intro && <p class="section-intro">{intro}</p>}
+    <div class="card-grid card-grid-2">
+      {services.map((service) => (
+        <article class="card service-card">
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          {service.idealFor && (
+            <p><span>Ideal for:</span> {service.idealFor}</p>
+          )}
+          {service.outcome && (
+            <p><span>Expected outcome:</span> {service.outcome}</p>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

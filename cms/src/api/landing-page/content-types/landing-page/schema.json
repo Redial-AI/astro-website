@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing Page",
+    "description": "Editable marketing landing page for Redial BPO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "default": "Nearshore and Offshore BPO Services | Redial BPO",
+      "required": true
+    },
+    "metaDescription": {
+      "type": "text",
+      "default": "Scale customer support, sales, and back-office operations with multilingual nearshore and offshore BPO teams.",
+      "required": true
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero",
+        "sections.social-proof-section",
+        "sections.value-props-section",
+        "sections.metrics-section",
+        "sections.services-section",
+        "sections.process-section",
+        "sections.industries-section",
+        "sections.testimonials-section",
+        "sections.faq-section",
+        "sections.cta-panel",
+        "sections.offices-section"
+      ]
+    },
+    "footerNote": {
+      "type": "text"
+    }
+  }
+}

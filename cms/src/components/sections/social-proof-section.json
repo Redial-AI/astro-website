@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_sections_social_proof_sections",
+    "info": {
+        "displayName": "Social Proof Section",
+        "description": "A section displaying trusted logos"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Trusted by growth-focused teams"
+        },
+        "logos": {
+            "type": "media",
+            "multiple": true,
+            "allowedTypes": [
+                "images"
+            ]
+        }
+    }
+}

@@ -1,0 +1,56 @@
+---
+import Base from "../layouts/Base.astro";
+import DynamicZone from "../components/DynamicZone.astro";
+import { getLandingPageData } from "../lib/strapi";
+import "../styles/globals.css";
+
+const isPreview = Astro.cookies.has("astro-preview");
+const data = await getLandingPageData(isPreview);
+---
+
+<Base title={data.metaTitle} description={data.metaDescription}>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/">
+        {data.settings.logo ? (
+          <img
+            src={data.settings.logo}
+            alt={data.settings.siteName}
+            width="140"
+            height="32"
+            class="brand-logo"
+          />
+        ) : (
+          <span class="brand-mark">{data.settings.siteName}</span>
+        )}
+      </a>
+
+      <nav aria-label="Main navigation" class="main-nav">
+        {data.settings.navLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.openInNewTab ? "_blank" : undefined}
+            rel={link.openInNewTab ? "noreferrer" : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <a class="button button-primary button-compact" href={data.settings.primaryActionHref}>
+        {data.settings.primaryActionLabel}
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <DynamicZone blocks={data.blocks} settings={data.settings} />
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>{data.settings.footerCopy}</p>
+      {data.footerNote && <p>{data.footerNote}</p>}
+    </div>
+  </footer>
+</Base>

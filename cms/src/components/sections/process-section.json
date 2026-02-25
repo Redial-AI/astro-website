@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_sections_process_sections",
+    "info": {
+        "displayName": "Process Section",
+        "description": "A section displaying the process"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "How engagement works"
+        },
+        "steps": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.process-step"
+        }
+    }
+}

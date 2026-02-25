@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  industries?: string;
+}
+
+const { title, industries = "" } = Astro.props;
+
+const parsedIndustries = industries
+  .split(/\n|,/)
+  .map((item) => item.trim())
+  .filter(Boolean);
+---
+
+<section class="section-block">
+  <div class="container">
+    <h2>{title}</h2>
+    <div class="chip-row" role="list" aria-label="Industries">
+      {parsedIndustries.map((industry) => (
+        <span class="chip" role="listitem">{industry}</span>
+      ))}
+    </div>
+  </div>
+</section>

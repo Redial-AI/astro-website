@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  offices?: { city: string; country: string; timezoneCoverage?: string; languages?: string; focus?: string }[];
+}
+
+const { title, offices = [] } = Astro.props;
+---
+
+<section class="section-block section-muted" id="locations">
+  <div class="container">
+    <h2>{title}</h2>
+    <div class="card-grid card-grid-2">
+      {offices.map((office) => (
+        <article class="card office-card">
+          <h3>{office.city}, {office.country}</h3>
+          {office.timezoneCoverage && <p>{office.timezoneCoverage}</p>}
+          {office.languages && <p>{office.languages}</p>}
+          {office.focus && <p>{office.focus}</p>}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

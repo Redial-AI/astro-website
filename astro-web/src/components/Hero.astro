@@ -1,0 +1,61 @@
+---
+import type { SiteSettings } from "../types/landing";
+
+interface Props {
+  eyebrow?: string;
+  headline: string;
+  description: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  heroImage?: string | null;
+  settings?: SiteSettings;
+}
+
+const {
+  eyebrow,
+  headline,
+  description,
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+  heroImage,
+  settings,
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{headline}</h1>
+      <p class="lead">{description}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={primaryCtaHref}>{primaryCtaLabel}</a>
+        {secondaryCtaLabel && secondaryCtaHref && (
+          <a class="button button-secondary" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+        )}
+      </div>
+      <div class="contact-row" aria-label="Primary contact methods">
+        {settings?.contactPhone && (
+          <a href={`tel:${settings.contactPhone.replace(/\s+/g, "")}`}>{settings.contactPhone}</a>
+        )}
+        {settings?.contactEmail && (
+          <a href={`mailto:${settings.contactEmail}`}>{settings.contactEmail}</a>
+        )}
+        {settings?.linkedInUrl && (
+          <a href={settings.linkedInUrl} target="_blank" rel="noreferrer">LinkedIn</a>
+        )}
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      {heroImage ? (
+        <img src={heroImage} alt="" width="680" height="760" class="hero-image" loading="eager" />
+      ) : (
+        <div class="abstract-art" />
+      )}
+    </div>
+  </div>
+</section>

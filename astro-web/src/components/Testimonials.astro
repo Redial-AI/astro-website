@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  testimonials?: { quote: string; authorName: string; authorRole?: string; company?: string }[];
+}
+
+const { title, testimonials = [] } = Astro.props;
+---
+
+<section class="section-block section-muted">
+  <div class="container">
+    <h2>{title}</h2>
+    <div class="card-grid card-grid-2">
+      {testimonials.map((t) => (
+        <figure class="card quote-card">
+          <blockquote>{t.quote}</blockquote>
+          <figcaption>
+            <p>{t.authorName}</p>
+            {(t.authorRole || t.company) && (
+              <p>{[t.authorRole, t.company].filter(Boolean).join(" | ")}</p>
+            )}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

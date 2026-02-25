@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_blocks_heroes",
+    "info": {
+        "displayName": "Hero",
+        "description": "A hero block with a title and optional description"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "description": {
+            "type": "text"
+        }
+    }
+}

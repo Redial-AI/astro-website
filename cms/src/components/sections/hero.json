@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_sections_heroes",
+  "info": {
+    "displayName": "Hero",
+    "description": "Top section with main message and CTAs"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "primaryCtaLabel": {
+      "type": "string",
+      "required": true,
+      "default": "Book a consultation"
+    },
+    "primaryCtaHref": {
+      "type": "string",
+      "required": true,
+      "default": "https://redialbpo.com/book-a-consultation"
+    },
+    "secondaryCtaLabel": {
+      "type": "string",
+      "default": "Explore services"
+    },
+    "secondaryCtaHref": {
+      "type": "string",
+      "default": "#services"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "Site Setting",
+    "description": "Global navigation and company contact settings"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "required": true,
+      "default": "Redial BPO"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "navLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.nav-link"
+    },
+    "primaryActionLabel": {
+      "type": "string",
+      "default": "Book a consultation"
+    },
+    "primaryActionHref": {
+      "type": "string",
+      "default": "https://redialbpo.com/book-a-consultation"
+    },
+    "contactPhone": {
+      "type": "string"
+    },
+    "contactEmail": {
+      "type": "email"
+    },
+    "linkedInUrl": {
+      "type": "string"
+    },
+    "footerCopy": {
+      "type": "string",
+      "default": "Redial BPO. All rights reserved."
+    }
+  }
+}

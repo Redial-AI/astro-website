@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  metrics?: { value: string; label: string; note?: string }[];
+}
+
+const { title, metrics = [] } = Astro.props;
+---
+
+<section class="section-block section-muted">
+  <div class="container">
+    <h2>{title}</h2>
+    <div class="metric-grid">
+      {metrics.map((metric) => (
+        <article class="metric-card">
+          <p class="metric-value">{metric.value}</p>
+          <p class="metric-label">{metric.label}</p>
+          {metric.note && <p class="metric-note">{metric.note}</p>}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

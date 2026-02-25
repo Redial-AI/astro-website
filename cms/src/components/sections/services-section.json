@@ -1,0 +1,22 @@
+{
+    "collectionName": "components_sections_services_sections",
+    "info": {
+        "displayName": "Services Section",
+        "description": "A section displaying services"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Services"
+        },
+        "intro": {
+            "type": "text"
+        },
+        "services": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.service"
+        }
+    }
+}

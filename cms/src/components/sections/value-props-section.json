@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_sections_value_props_sections",
+    "info": {
+        "displayName": "Value Props Section",
+        "description": "A section displaying value propositions"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Why teams choose Redial"
+        },
+        "features": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.feature-item"
+        }
+    }
+}

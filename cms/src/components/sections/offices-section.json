@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_sections_offices_sections",
+    "info": {
+        "displayName": "Offices Section",
+        "description": "A section displaying offices"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Global delivery centers"
+        },
+        "offices": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.office"
+        }
+    }
+}

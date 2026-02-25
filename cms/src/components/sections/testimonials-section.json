@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_sections_testimonials_sections",
+    "info": {
+        "displayName": "Testimonials Section",
+        "description": "A section displaying testimonials"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Client feedback"
+        },
+        "testimonials": {
+            "type": "component",
+            "repeatable": true,
+            "component": "shared.testimonial"
+        }
+    }
+}

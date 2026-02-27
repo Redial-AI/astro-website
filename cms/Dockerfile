@@ -1,27 +1,36 @@
 FROM node:20-alpine AS build
 
-# Installing libvips-dev for sharp Compatibility
+# Install build dependencies required by sharp/vips
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 
 WORKDIR /opt/
-COPY package.json ./
-RUN npm install
 
-WORKDIR /opt/app
+# Copy root workspace package files
+COPY package.json package-lock.json ./
+COPY cms/package.json ./cms/
+COPY astro-web/package.json ./astro-web/
+
+# Install dependencies using lockfile
+RUN npm ci
+
+# Copy the rest of the application
 COPY . .
-RUN cp -a /opt/node_modules ./
 
-RUN npm run build
+# Build only the CMS workspace
+RUN npm run build --workspace cms
 
 FROM node:20-alpine
 
-# Installing libvips-dev for sharp Compatibility
+# Install runtime dependencies for sharp
 RUN apk update && apk add --no-cache vips-dev > /dev/null 2>&1
 
 WORKDIR /opt/app
+
+# Copy the built CMS node_modules and code from the builder
 COPY --from=build /opt/node_modules ./node_modules
-COPY --from=build /opt/app ./
-ENV PATH=/opt/node_modules/.bin:$PATH
+COPY --from=build /opt/cms ./
+
+ENV PATH=/opt/app/node_modules/.bin:$PATH
 
 RUN chown -R node:node /opt/app
 USER node

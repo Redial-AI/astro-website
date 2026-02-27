@@ -18,5 +18,6 @@ cms/.strapi-updater.json
 cms/public/uploads/*
 !cms/public/uploads/.gitkeep
 
+/web
 web/.next
 web/out

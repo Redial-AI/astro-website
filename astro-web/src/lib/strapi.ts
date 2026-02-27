@@ -14,8 +14,17 @@ import type {
     Testimonial,
 } from "../types/landing";
 
-const STRAPI_URL = import.meta.env.STRAPI_URL ?? "http://localhost:1337";
-const STRAPI_API_TOKEN = import.meta.env.STRAPI_API_TOKEN;
+const isNode = typeof process !== "undefined" && process?.env != null;
+
+const STRAPI_URL =
+    (isNode ? process.env.STRAPI_URL : undefined) ??
+    import.meta.env.PUBLIC_STRAPI_URL ??
+    import.meta.env.STRAPI_URL ??
+    "http://localhost:1337";
+
+const STRAPI_API_TOKEN =
+    (isNode ? process.env.STRAPI_API_TOKEN : undefined) ??
+    import.meta.env.STRAPI_API_TOKEN;
 
 const toString = (value: unknown, fallback = ""): string =>
     typeof value === "string" ? value : fallback;

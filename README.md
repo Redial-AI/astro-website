@@ -1,9 +1,9 @@
-# Redial BPO Landing Page (Strapi + Next.js)
+# Redial BPO Landing Page (Strapi + Astro)
 
 This workspace contains:
 
 - `cms/`: Strapi CMS project for editable landing page content.
-- `web/`: Next.js frontend that renders the landing page from Strapi content.
+- `astro-web/`: Astro frontend that renders the landing page from Strapi content.
 
 The implementation is designed so non-technical editors can update text, CTAs, FAQs, services, metrics, logos, and locations directly in Strapi.
 
@@ -30,7 +30,7 @@ npm run dev:cms
 4. Start frontend (Terminal 2):
 
 ```bash
-npm run dev:web
+npm run dev:astro-web
 ```
 
 - Strapi Admin: `http://localhost:1337/admin`
@@ -77,16 +77,42 @@ This allows the landing page to render published content without requiring auth.
 4. Click `Save`, then `Publish`.
 5. Refresh `http://localhost:3000`.
 
-## 5. Deployment notes
+## 5. Docker deployment (single VPS / Coolify)
+
+Run everything (Astro + Strapi + reverse proxy) from repo root:
+
+```bash
+docker compose up --build -d
+```
+
+- Public app: `http://localhost` (or your domain)
+- Strapi Admin: `http://localhost/admin`
+- Strapi API: `http://localhost/api`
+
+Important environment variables:
+
+- `PUBLIC_URL`: public base URL used by Strapi (example `https://example.com`)
+- `PUBLIC_STRAPI_URL`: URL Astro uses for media URLs (usually same as `PUBLIC_URL`)
+- `CLIENT_URL`: frontend URL for Strapi preview and CSP
+- `STRAPI_API_TOKEN`: optional if API is private
+
+You can copy defaults from `.env.docker.example`.
+
+### Coolify note
+
+The previous `cms/Dockerfile` required monorepo root context and failed if Coolify built from `/cms`.
+The current `cms/Dockerfile` is now self-contained and can be built directly from the `cms` directory.
+
+## 6. Deployment notes
 
 - Set `STRAPI_URL` in frontend environment to your deployed Strapi URL.
 - Optionally set `STRAPI_API_TOKEN` if you keep content private.
 - Ensure CORS is configured in Strapi for your frontend domain.
 
-## 6. Why this structure
+## 7. Why this structure
 
 - Strapi components keep sections modular and easy to maintain.
 - Single types are used for one-page marketing content and global site settings.
-- Next.js server rendering + revalidation provides fast page loads and SEO-ready HTML.
+- Astro server rendering provides fast page loads and SEO-ready HTML.
 - If Strapi data is missing, frontend falls back to safe default content so the page never breaks.
 # astro-website

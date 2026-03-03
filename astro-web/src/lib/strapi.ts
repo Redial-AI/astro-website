@@ -16,11 +16,16 @@ import type {
 
 const isNode = typeof process !== "undefined" && process?.env != null;
 
-const STRAPI_URL =
+const STRAPI_INTERNAL_URL =
+    (isNode ? process.env.STRAPI_INTERNAL_URL : undefined) ??
     (isNode ? process.env.STRAPI_URL : undefined) ??
-    import.meta.env.PUBLIC_STRAPI_URL ??
     import.meta.env.STRAPI_URL ??
     "http://localhost:1337";
+
+const STRAPI_PUBLIC_URL =
+    (isNode ? process.env.PUBLIC_STRAPI_URL : undefined) ??
+    import.meta.env.PUBLIC_STRAPI_URL ??
+    STRAPI_INTERNAL_URL;
 
 const STRAPI_API_TOKEN =
     (isNode ? process.env.STRAPI_API_TOKEN : undefined) ??
@@ -54,7 +59,7 @@ const withBaseUrl = (url: string): string => {
     if (url.startsWith("http://") || url.startsWith("https://")) {
         return url;
     }
-    return `${STRAPI_URL}${url}`;
+    return `${STRAPI_PUBLIC_URL}${url}`;
 };
 
 const toMediaUrl = (value: unknown): string | null => {
@@ -337,7 +342,7 @@ const parseSiteSettings = (
 
 const fetchFromStrapi = async (path: string) => {
     try {
-        const response = await fetch(`${STRAPI_URL}${path}`, {
+        const response = await fetch(`${STRAPI_INTERNAL_URL}${path}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = [
+exports.default = ({ env }) => [
     "strapi::logger",
     "strapi::errors",
     {
@@ -12,7 +12,7 @@ exports.default = [
                     "connect-src": ["'self'", "https:"],
                     "img-src": ["'self'", "data:", "blob:", "https:"],
                     "media-src": ["'self'", "data:", "blob:", "https:"],
-                    "frame-src": ["'self'", "http://localhost:3000", "http://192.168.1.5:3000"],
+                    "frame-src": ["'self'", env("CLIENT_URL", "http://localhost:3000")],
                     upgradeInsecureRequests: null,
                 },
             },

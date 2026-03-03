@@ -1,25 +1,20 @@
-FROM node:20-alpine AS build
-
-# Build deps for sharp/vips
-RUN apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev
+FROM node:20-alpine
 
 WORKDIR /opt/app
+
+# Install only what is needed to compile native modules during build.
+# Keep runtime lean by removing build deps afterward.
+RUN apk add --no-cache --virtual .build-deps build-base python3 make g++ \
+    && apk add --no-cache vips
 
 # Keep the build context local to /cms so Coolify can build this service directly.
 COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build
-
-FROM node:20-alpine
-
-# Runtime dependency for sharp
-RUN apk add --no-cache vips-dev
-
-WORKDIR /opt/app
-
-COPY --from=build /opt/app ./
+RUN npm run build \
+    && npm prune --omit=dev \
+    && apk del .build-deps
 
 ENV NODE_ENV=production
 ENV PATH=/opt/app/node_modules/.bin:$PATH

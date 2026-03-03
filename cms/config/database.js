@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ({ env }) => ({
+module.exports = ({ env }) => ({
     connection: {
         client: "sqlite",
         connection: {

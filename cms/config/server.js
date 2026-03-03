@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ({ env }) => ({
+module.exports = ({ env }) => ({
     host: env("HOST", "0.0.0.0"),
     port: env.int("PORT", 1337),
     url: env("SERVICE_URL_STRAPI", env("PUBLIC_URL", "http://localhost:1337")),

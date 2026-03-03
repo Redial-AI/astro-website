@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ({ env }) => ({
+module.exports = ({ env }) => ({
     secrets: {
         encryptionKey: env("ADMIN_ENCRYPTION_KEY", "dev-admin-encryption-key"),
     },

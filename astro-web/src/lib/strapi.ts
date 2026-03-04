@@ -344,6 +344,7 @@ const fetchFromStrapi = async (path: string) => {
     try {
         const response = await fetch(`${STRAPI_INTERNAL_URL}${path}`, {
             method: "GET",
+            cache: "no-store",
             headers: {
                 "Content-Type": "application/json",
                 ...(STRAPI_API_TOKEN

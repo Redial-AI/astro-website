@@ -1,0 +1,47 @@
+
+> redialbpo-cms@0.1.0 start
+> strapi start
+
+[2026-03-03 20:18:07.499] info: [discard-drafts] Migration started
+[2026-03-03 20:18:07.820] info: [discard-drafts] Stage 1/5 – cloning published entries into draft rows
+[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 1/5 complete
+[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 2/5 – copying relations and components to drafts
+[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 2/5 complete
+[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 3/5 – fixing existing draft relations
+[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 3/5 complete
+[2026-03-03 20:18:07.822] info: [discard-drafts] Stage 4/5 – fixing existing draft component relations
+[2026-03-03 20:18:07.822] info: [discard-drafts] Stage 4/5 complete
+[2026-03-03 20:18:07.822] info: [discard-drafts] Stage 4b/5 – fixing published component relations to published targets
+[2026-03-03 20:18:07.823] info: [discard-drafts] Stage 4b/5 complete
+[2026-03-03 20:18:07.823] info: [discard-drafts] Stage 5/5 – updating foreign key references to draft targets
+[2026-03-03 20:18:07.823] info: [discard-drafts] Stage 5/5 complete
+[2026-03-03 20:18:07.823] info: [discard-drafts] Migration completed successfully
+[2026-03-03 20:18:14.897] warn: admin.auth.options.expiresIn is deprecated and will be removed in Strapi 6. Please configure admin.auth.sessions.maxRefreshTokenLifespan and admin.auth.sessions.maxSessionLifespan.
+Seeding Landing Page with default blocks...
+Successfully seeded Landing Page!
+
+ Project information
+
+┌────────────────────┬──────────────────────────────────────────────────┐
+│ Time               │ Tue Mar 03 2026 20:18:19 GMT+0000 (Coordinated … │
+│ Launched in        │ 22906 ms                                         │
+│ Environment        │ production                                       │
+│ Process PID        │ 17                                               │
+│ Version            │ 5.37.1 (node v20.20.0)                           │
+│ Edition            │ Community                                        │
+│ Database           │ postgres                                         │
+│ Database name      │ postgres                                         │
+└────────────────────┴──────────────────────────────────────────────────┘
+
+ Actions available
+
+One more thing...
+Create your first administrator 💻 by going to the administration panel at:
+
+┌────────────────────────────────┐
+│ https://cms.redialbpo.io/admin │
+└────────────────────────────────┘
+
+[2026-03-03 20:18:19.240] info: Strapi started successfully
+(node:17) DeprecationWarning: Calling client.query() when the client is already executing a query is deprecated and will be removed in pg@9.0. Use asycn/await or an external async flow control mechanism instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

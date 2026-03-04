@@ -1,0 +1,9 @@
+
+> astro-web@0.0.1 start
+> node ./dist/server/entry.mjs
+
+18:07:15 [@astrojs/node] Server listening on 
+  local: http://localhost:4321 	
+  network: http://10.0.1.19:4321
+
+npm warn config production Use `--omit=dev` instead.

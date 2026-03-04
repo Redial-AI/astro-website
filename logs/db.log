@@ -1,0 +1,100 @@
+2026-03-03 20:18:02.797 UTC [6009] ERROR:  relation "pages_unique" does not exist
+2026-03-03 20:18:02.797 UTC [6009] STATEMENT:  ALTER INDEX "pages_unique" RENAME TO "pages_uq"
+2026-03-03 20:18:02.801 UTC [6009] ERROR:  relation "pages_documents_index" does not exist
+2026-03-03 20:18:02.801 UTC [6009] STATEMENT:  ALTER INDEX "pages_documents_index" RENAME TO "pages_documents_idx"
+2026-03-03 20:18:02.814 UTC [6009] ERROR:  relation "site_settings_field_index" does not exist
+2026-03-03 20:18:02.814 UTC [6009] STATEMENT:  ALTER INDEX "site_settings_field_index" RENAME TO "site_settings_field_idx"
+2026-03-03 20:18:02.892 UTC [6009] ERROR:  relation "site_settings_component_type_index" does not exist
+2026-03-03 20:18:02.892 UTC [6009] STATEMENT:  ALTER INDEX "site_settings_component_type_index" RENAME TO "site_settings_component_type_idx"
+2026-03-03 20:18:02.896 UTC [6009] ERROR:  relation "site_settings_unique" does not exist
+2026-03-03 20:18:02.896 UTC [6009] STATEMENT:  ALTER INDEX "site_settings_unique" RENAME TO "site_settings_uq"
+2026-03-03 20:18:02.898 UTC [6009] ERROR:  relation "site_settings_documents_index" does not exist
+2026-03-03 20:18:02.898 UTC [6009] STATEMENT:  ALTER INDEX "site_settings_documents_index" RENAME TO "site_settings_documents_idx"
+2026-03-03 20:18:02.903 UTC [6009] ERROR:  relation "admin_permissions_documents_index" does not exist
+2026-03-03 20:18:02.903 UTC [6009] STATEMENT:  ALTER INDEX "admin_permissions_documents_index" RENAME TO "admin_permissions_documents_idx"
+2026-03-03 20:18:02.907 UTC [6009] ERROR:  relation "admin_users_documents_index" does not exist
+2026-03-03 20:18:02.907 UTC [6009] STATEMENT:  ALTER INDEX "admin_users_documents_index" RENAME TO "admin_users_documents_idx"
+2026-03-03 20:18:02.910 UTC [6009] ERROR:  relation "admin_roles_documents_index" does not exist
+2026-03-03 20:18:02.910 UTC [6009] STATEMENT:  ALTER INDEX "admin_roles_documents_index" RENAME TO "admin_roles_documents_idx"
+2026-03-03 20:18:02.913 UTC [6009] ERROR:  relation "strapi_api_tokens_documents_index" does not exist
+2026-03-03 20:18:02.913 UTC [6009] STATEMENT:  ALTER INDEX "strapi_api_tokens_documents_index" RENAME TO "strapi_api_tokens_documents_idx"
+2026-03-03 20:18:02.917 UTC [6009] ERROR:  relation "strapi_api_token_permissions_documents_index" does not exist
+2026-03-03 20:18:02.917 UTC [6009] STATEMENT:  ALTER INDEX "strapi_api_token_permissions_documents_index" RENAME TO "strapi_api_token_permissions_documents_idx"
+2026-03-03 20:18:02.997 UTC [6009] ERROR:  relation "strapi_transfer_tokens_documents_index" does not exist
+2026-03-03 20:18:02.997 UTC [6009] STATEMENT:  ALTER INDEX "strapi_transfer_tokens_documents_index" RENAME TO "strapi_transfer_tokens_documents_idx"
+2026-03-03 20:18:03.004 UTC [6009] ERROR:  relation "strapi_transfer_token_permissions_documents_index" does not exist
+2026-03-03 20:18:03.004 UTC [6009] STATEMENT:  ALTER INDEX "strapi_transfer_token_permissions_documents_index" RENAME TO "strapi_transfer_token_permissions_documents_idx"
+2026-03-03 20:18:03.024 UTC [6009] ERROR:  relation "strapi_sessions_documents_index" does not exist
+2026-03-03 20:18:03.024 UTC [6009] STATEMENT:  ALTER INDEX "strapi_sessions_documents_index" RENAME TO "strapi_sessions_documents_idx"
+2026-03-03 20:18:03.095 UTC [6009] ERROR:  relation "components_sections_value_props_sections_field_index" does not exist
+2026-03-03 20:18:03.095 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_value_props_sections_field_index" RENAME TO "components_sections_value_props_sections_field_idx"
+2026-03-03 20:18:03.103 UTC [6009] ERROR:  relation "components_sections_value_props_sections_component_type_index" does not exist
+2026-03-03 20:18:03.103 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_value_props_sections_component_type_index" RENAME TO "components_sections_value_props6eaa6_component_type_idx"
+2026-03-03 20:18:03.111 UTC [6009] ERROR:  relation "components_sections_value_props_sections_unique" does not exist
+2026-03-03 20:18:03.111 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_value_props_sections_unique" RENAME TO "components_sections_value_props_sections_uq"
+2026-03-03 20:18:03.196 UTC [6009] ERROR:  relation "components_sections_testimonials_sections_field_index" does not exist
+2026-03-03 20:18:03.196 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_testimonials_sections_field_index" RENAME TO "components_sections_testimonials_sections_field_idx"
+2026-03-03 20:18:03.199 UTC [6009] ERROR:  relation "components_sections_testimonials_sections_component_type_index" does not exist
+2026-03-03 20:18:03.199 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_testimonials_sections_component_type_index" RENAME TO "components_sections_testimonialb138f_component_type_idx"
+2026-03-03 20:18:03.203 UTC [6009] ERROR:  relation "components_sections_testimonials_sections_unique" does not exist
+2026-03-03 20:18:03.203 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_testimonials_sections_unique" RENAME TO "components_sections_testimonials_sections_uq"
+2026-03-03 20:18:03.206 UTC [6009] ERROR:  relation "components_sections_services_sections_field_index" does not exist
+2026-03-03 20:18:03.206 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_services_sections_field_index" RENAME TO "components_sections_services_sections_field_idx"
+2026-03-03 20:18:03.211 UTC [6009] ERROR:  relation "components_sections_services_sections_component_type_index" does not exist
+2026-03-03 20:18:03.211 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_services_sections_component_type_index" RENAME TO "components_sections_services_se235d1_component_type_idx"
+2026-03-03 20:18:03.215 UTC [6009] ERROR:  relation "components_sections_services_sections_unique" does not exist
+2026-03-03 20:18:03.215 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_services_sections_unique" RENAME TO "components_sections_services_sections_uq"
+2026-03-03 20:18:03.219 UTC [6009] ERROR:  relation "components_sections_process_sections_field_index" does not exist
+2026-03-03 20:18:03.219 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_process_sections_field_index" RENAME TO "components_sections_process_sections_field_idx"
+2026-03-03 20:18:03.222 UTC [6009] ERROR:  relation "components_sections_process_sections_component_type_index" does not exist
+2026-03-03 20:18:03.222 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_process_sections_component_type_index" RENAME TO "components_sections_process_sections_component_type_idx"
+2026-03-03 20:18:03.294 UTC [6009] ERROR:  relation "components_sections_process_sections_unique" does not exist
+2026-03-03 20:18:03.294 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_process_sections_unique" RENAME TO "components_sections_process_sections_uq"
+2026-03-03 20:18:03.298 UTC [6009] ERROR:  relation "components_sections_offices_sections_field_index" does not exist
+2026-03-03 20:18:03.298 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_offices_sections_field_index" RENAME TO "components_sections_offices_sections_field_idx"
+2026-03-03 20:18:03.302 UTC [6009] ERROR:  relation "components_sections_offices_sections_component_type_index" does not exist
+2026-03-03 20:18:03.302 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_offices_sections_component_type_index" RENAME TO "components_sections_offices_sections_component_type_idx"
+2026-03-03 20:18:03.304 UTC [6009] ERROR:  relation "components_sections_offices_sections_unique" does not exist
+2026-03-03 20:18:03.304 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_offices_sections_unique" RENAME TO "components_sections_offices_sections_uq"
+2026-03-03 20:18:03.308 UTC [6009] ERROR:  relation "components_sections_metrics_sections_field_index" does not exist
+2026-03-03 20:18:03.308 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_metrics_sections_field_index" RENAME TO "components_sections_metrics_sections_field_idx"
+2026-03-03 20:18:03.313 UTC [6009] ERROR:  relation "components_sections_metrics_sections_component_type_index" does not exist
+2026-03-03 20:18:03.313 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_metrics_sections_component_type_index" RENAME TO "components_sections_metrics_sections_component_type_idx"
+2026-03-03 20:18:03.322 UTC [6009] ERROR:  relation "components_sections_metrics_sections_unique" does not exist
+2026-03-03 20:18:03.322 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_metrics_sections_unique" RENAME TO "components_sections_metrics_sections_uq"
+2026-03-03 20:18:03.494 UTC [6009] ERROR:  relation "components_sections_faq_sections_field_index" does not exist
+2026-03-03 20:18:03.494 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_faq_sections_field_index" RENAME TO "components_sections_faq_sections_field_idx"
+2026-03-03 20:18:03.503 UTC [6009] ERROR:  relation "components_sections_faq_sections_component_type_index" does not exist
+2026-03-03 20:18:03.503 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_faq_sections_component_type_index" RENAME TO "components_sections_faq_sections_component_type_idx"
+2026-03-03 20:18:03.506 UTC [6009] ERROR:  relation "components_sections_faq_sections_unique" does not exist
+2026-03-03 20:18:03.506 UTC [6009] STATEMENT:  ALTER INDEX "components_sections_faq_sections_unique" RENAME TO "components_sections_faq_sections_uq"
+2026-03-03 20:18:03.509 UTC [6009] ERROR:  relation "files_related_mph_order_index" does not exist
+2026-03-03 20:18:03.509 UTC [6009] STATEMENT:  ALTER INDEX "files_related_mph_order_index" RENAME TO "files_related_mph_oidx"
+2026-03-03 20:18:03.512 UTC [6009] ERROR:  relation "files_related_mph_id_column_index" does not exist
+2026-03-03 20:18:03.512 UTC [6009] STATEMENT:  ALTER INDEX "files_related_mph_id_column_index" RENAME TO "files_related_mph_idix"
+2026-03-03 20:18:03.515 UTC [6009] ERROR:  relation "files_folder_lnk_unique" does not exist
+2026-03-03 20:18:03.515 UTC [6009] STATEMENT:  ALTER INDEX "files_folder_lnk_unique" RENAME TO "files_folder_lnk_uq"
+2026-03-03 20:18:03.523 UTC [6009] ERROR:  relation "upload_folders_parent_lnk_unique" does not exist
+2026-03-03 20:18:03.523 UTC [6009] STATEMENT:  ALTER INDEX "upload_folders_parent_lnk_unique" RENAME TO "upload_folders_parent_lnk_uq"
+2026-03-03 20:18:03.618 UTC [6009] ERROR:  relation "strapi_release_actions_release_lnk_unique" does not exist
+2026-03-03 20:18:03.618 UTC [6009] STATEMENT:  ALTER INDEX "strapi_release_actions_release_lnk_unique" RENAME TO "strapi_release_actions_release_lnk_uq"
+2026-03-03 20:18:03.621 UTC [6009] ERROR:  relation "strapi_workflows_stage_required_to_publish_lnk_unique" does not exist
+2026-03-03 20:18:03.621 UTC [6009] STATEMENT:  ALTER INDEX "strapi_workflows_stage_required_to_publish_lnk_unique" RENAME TO "strapi_workflows_stage_required_to_publish_lnk_uq"
+2026-03-03 20:18:03.698 UTC [6009] ERROR:  relation "strapi_workflows_stages_workflow_lnk_unique" does not exist
+2026-03-03 20:18:03.698 UTC [6009] STATEMENT:  ALTER INDEX "strapi_workflows_stages_workflow_lnk_unique" RENAME TO "strapi_workflows_stages_workflow_lnk_uq"
+2026-03-03 20:18:03.703 UTC [6009] ERROR:  relation "strapi_workflows_stages_permissions_lnk_unique" does not exist
+2026-03-03 20:18:03.703 UTC [6009] STATEMENT:  ALTER INDEX "strapi_workflows_stages_permissions_lnk_unique" RENAME TO "strapi_workflows_stages_permissions_lnk_uq"
+2026-03-03 20:18:03.708 UTC [6009] ERROR:  relation "up_permissions_role_lnk_unique" does not exist
+2026-03-03 20:18:03.708 UTC [6009] STATEMENT:  ALTER INDEX "up_permissions_role_lnk_unique" RENAME TO "up_permissions_role_lnk_uq"
+2026-03-03 20:18:03.710 UTC [6009] ERROR:  relation "up_users_role_lnk_unique" does not exist
+2026-03-03 20:18:03.710 UTC [6009] STATEMENT:  ALTER INDEX "up_users_role_lnk_unique" RENAME TO "up_users_role_lnk_uq"
+2026-03-03 20:18:03.711 UTC [6009] ERROR:  relation "admin_permissions_role_lnk_unique" does not exist
+2026-03-03 20:18:03.711 UTC [6009] STATEMENT:  ALTER INDEX "admin_permissions_role_lnk_unique" RENAME TO "admin_permissions_role_lnk_uq"
+2026-03-03 20:18:03.713 UTC [6009] ERROR:  relation "admin_users_roles_lnk_unique" does not exist
+2026-03-03 20:18:03.713 UTC [6009] STATEMENT:  ALTER INDEX "admin_users_roles_lnk_unique" RENAME TO "admin_users_roles_lnk_uq"
+2026-03-03 20:18:03.715 UTC [6009] ERROR:  relation "strapi_api_token_permissions_token_lnk_unique" does not exist
+2026-03-03 20:18:03.715 UTC [6009] STATEMENT:  ALTER INDEX "strapi_api_token_permissions_token_lnk_unique" RENAME TO "strapi_api_token_permissions_token_lnk_uq"
+2026-03-03 20:18:03.716 UTC [6009] ERROR:  relation "strapi_transfer_token_permissions_token_lnk_unique" does not exist
+2026-03-03 20:18:03.716 UTC [6009] STATEMENT:  ALTER INDEX "strapi_transfer_token_permissions_token_lnk_unique" RENAME TO "strapi_transfer_token_permissions_token_lnk_uq"
+2026-03-03 20:22:39.017 UTC [60] LOG:  checkpoint starting: time
+2026-03-03 20:23:40.857 UTC [60] LOG:  checkpoint complete: wrote 614 buffers (3.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=61.796 s, sync=0.031 s, total=61.840 s; sync files=544, longest=0.002 s, average=0.001 s; distance=2968 kB, estimate=2968 kB; lsn=0/17FE790, redo lsn=0/17FE700

@@ -4,6 +4,8 @@ import DynamicZone from "../components/DynamicZone.astro";
 import { getLandingPageData } from "../lib/strapi";
 import "../styles/globals.css";
 
+export const prerender = false;
+
 const isPreview = Astro.cookies.has("astro-preview");
 const data = await getLandingPageData(isPreview);
 ---

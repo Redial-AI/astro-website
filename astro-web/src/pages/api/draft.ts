@@ -1,5 +1,7 @@
 import type { APIRoute } from "astro";
 
+export const prerender = false;
+
 export const GET: APIRoute = ({ url, cookies, redirect }) => {
     const documentId = url.searchParams.get("documentId");
     const path = url.searchParams.get("path") || "/";

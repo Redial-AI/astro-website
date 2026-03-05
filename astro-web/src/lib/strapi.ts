@@ -390,3 +390,72 @@ export async function getLandingPageData(isPreview = false): Promise<LandingPage
         settings: parseSiteSettings(settings, fallback.settings),
     };
 }
+
+export interface BlogPost {
+    id: number;
+    documentId: string;
+    title: string;
+    slug: string;
+    author: string;
+    description: string;
+    content: string;
+    images: string[];
+    createdAt: string;
+}
+
+export async function getBlogPosts(isPreview = false): Promise<BlogPost[]> {
+    const statusParam = isPreview ? "draft" : "published";
+
+    // Fetch blog posts
+    const response = await fetchFromStrapi(`/api/blog-posts?status=${statusParam}&populate=*`);
+
+    if (!response || typeof response !== 'object' || !('data' in response)) {
+        return [];
+    }
+
+    const data = (response as { data?: unknown }).data;
+    if (!Array.isArray(data)) {
+        return [];
+    }
+
+    return data.map((item: any) => ({
+        id: item.id,
+        documentId: item.documentId || '',
+        title: item.title || '',
+        slug: item.slug || '',
+        author: item.author || '',
+        description: item.description || '',
+        content: item.content || '',
+        images: toMediaArray(item.images),
+        createdAt: item.createdAt || ''
+    }));
+}
+
+export async function getBlogPostBySlug(slug: string, isPreview = false): Promise<BlogPost | null> {
+    const statusParam = isPreview ? "draft" : "published";
+
+    // Fetch single blog post by slug
+    const response = await fetchFromStrapi(`/api/blog-posts?filters[slug][$eq]=${slug}&status=${statusParam}&populate=*`);
+
+    if (!response || typeof response !== 'object' || !('data' in response)) {
+        return null;
+    }
+
+    const data = (response as { data?: unknown }).data;
+    if (!Array.isArray(data) || data.length === 0) {
+        return null;
+    }
+
+    const item = data[0];
+    return {
+        id: item.id,
+        documentId: item.documentId || '',
+        title: item.title || '',
+        slug: item.slug || '',
+        author: item.author || '',
+        description: item.description || '',
+        content: item.content || '',
+        images: toMediaArray(item.images),
+        createdAt: item.createdAt || ''
+    };
+}

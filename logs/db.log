@@ -1,3 +1,93 @@
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/data ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default "max_connections" ... 100
+selecting default "shared_buffers" ... 128MB
+selecting default time zone ... UTC
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+waiting for server to start....2026-03-03 19:12:36.997 UTC [41] LOG:  starting PostgreSQL 17.9 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+2026-03-03 19:12:36.999 UTC [41] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-03-03 19:12:37.006 UTC [44] LOG:  database system was shut down at 2026-03-03 19:12:36 UTC
+2026-03-03 19:12:37.082 UTC [41] LOG:  database system is ready to accept connections
+ done
+server started
+
+/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+waiting for server to shut down....2026-03-03 19:12:37.185 UTC [41] LOG:  received fast shutdown request
+sh: locale: not found
+2026-03-03 19:12:35.104 UTC [35] WARNING:  no usable system locales were found
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-03-03 19:12:37.189 UTC [41] LOG:  aborting any active transactions
+2026-03-03 19:12:37.197 UTC [41] LOG:  background worker "logical replication launcher" (PID 47) exited with exit code 1
+2026-03-03 19:12:37.199 UTC [42] LOG:  shutting down
+2026-03-03 19:12:37.200 UTC [42] LOG:  checkpoint starting: shutdown immediate
+2026-03-03 19:12:37.277 UTC [42] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.002 s, total=0.079 s; sync files=2, longest=0.002 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/14ED290, redo lsn=0/14ED290
+2026-03-03 19:12:37.284 UTC [41] LOG:  database system is shut down
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+2026-03-03 19:12:37.382 UTC [1] LOG:  starting PostgreSQL 17.9 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+2026-03-03 19:12:37.382 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-03-03 19:12:37.382 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-03-03 19:12:37.386 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-03-03 19:12:37.394 UTC [62] LOG:  database system was shut down at 2026-03-03 19:12:37 UTC
+2026-03-03 19:12:37.402 UTC [1] LOG:  database system is ready to accept connections
+2026-03-03 19:17:37.438 UTC [60] LOG:  checkpoint starting: time
+2026-03-03 19:17:40.716 UTC [60] LOG:  checkpoint complete: wrote 35 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.217 s, sync=0.009 s, total=3.284 s; sync files=10, longest=0.007 s, average=0.001 s; distance=172 kB, estimate=172 kB; lsn=0/15186D8, redo lsn=0/1518680
+2026-03-03 20:18:02.511 UTC [6009] ERROR:  relation "files_documents_index" does not exist
+2026-03-03 20:18:02.511 UTC [6009] STATEMENT:  ALTER INDEX "files_documents_index" RENAME TO "files_documents_idx"
+2026-03-03 20:18:02.524 UTC [6009] ERROR:  relation "upload_folders_documents_index" does not exist
+2026-03-03 20:18:02.524 UTC [6009] STATEMENT:  ALTER INDEX "upload_folders_documents_index" RENAME TO "upload_folders_documents_idx"
+2026-03-03 20:18:02.593 UTC [6009] ERROR:  relation "i18n_locale_documents_index" does not exist
+2026-03-03 20:18:02.593 UTC [6009] STATEMENT:  ALTER INDEX "i18n_locale_documents_index" RENAME TO "i18n_locale_documents_idx"
+2026-03-03 20:18:02.597 UTC [6009] ERROR:  relation "strapi_releases_documents_index" does not exist
+2026-03-03 20:18:02.597 UTC [6009] STATEMENT:  ALTER INDEX "strapi_releases_documents_index" RENAME TO "strapi_releases_documents_idx"
+2026-03-03 20:18:02.600 UTC [6009] ERROR:  relation "strapi_release_actions_documents_index" does not exist
+2026-03-03 20:18:02.600 UTC [6009] STATEMENT:  ALTER INDEX "strapi_release_actions_documents_index" RENAME TO "strapi_release_actions_documents_idx"
+2026-03-03 20:18:02.604 UTC [6009] ERROR:  relation "strapi_workflows_documents_index" does not exist
+2026-03-03 20:18:02.604 UTC [6009] STATEMENT:  ALTER INDEX "strapi_workflows_documents_index" RENAME TO "strapi_workflows_documents_idx"
+2026-03-03 20:18:02.608 UTC [6009] ERROR:  relation "strapi_workflows_stages_documents_index" does not exist
+2026-03-03 20:18:02.608 UTC [6009] STATEMENT:  ALTER INDEX "strapi_workflows_stages_documents_index" RENAME TO "strapi_workflows_stages_documents_idx"
+2026-03-03 20:18:02.612 UTC [6009] ERROR:  relation "up_permissions_documents_index" does not exist
+2026-03-03 20:18:02.612 UTC [6009] STATEMENT:  ALTER INDEX "up_permissions_documents_index" RENAME TO "up_permissions_documents_idx"
+2026-03-03 20:18:02.616 UTC [6009] ERROR:  relation "up_roles_documents_index" does not exist
+2026-03-03 20:18:02.616 UTC [6009] STATEMENT:  ALTER INDEX "up_roles_documents_index" RENAME TO "up_roles_documents_idx"
+2026-03-03 20:18:02.621 UTC [6009] ERROR:  relation "up_users_documents_index" does not exist
+2026-03-03 20:18:02.621 UTC [6009] STATEMENT:  ALTER INDEX "up_users_documents_index" RENAME TO "up_users_documents_idx"
+2026-03-03 20:18:02.694 UTC [6009] ERROR:  relation "landing_pages_field_index" does not exist
+2026-03-03 20:18:02.694 UTC [6009] STATEMENT:  ALTER INDEX "landing_pages_field_index" RENAME TO "landing_pages_field_idx"
+2026-03-03 20:18:02.697 UTC [6009] ERROR:  relation "landing_pages_component_type_index" does not exist
+2026-03-03 20:18:02.697 UTC [6009] STATEMENT:  ALTER INDEX "landing_pages_component_type_index" RENAME TO "landing_pages_component_type_idx"
+2026-03-03 20:18:02.701 UTC [6009] ERROR:  relation "landing_pages_unique" does not exist
+2026-03-03 20:18:02.701 UTC [6009] STATEMENT:  ALTER INDEX "landing_pages_unique" RENAME TO "landing_pages_uq"
+2026-03-03 20:18:02.705 UTC [6009] ERROR:  relation "landing_pages_documents_index" does not exist
+2026-03-03 20:18:02.705 UTC [6009] STATEMENT:  ALTER INDEX "landing_pages_documents_index" RENAME TO "landing_pages_documents_idx"
+2026-03-03 20:18:02.709 UTC [6009] ERROR:  relation "pages_field_index" does not exist
+2026-03-03 20:18:02.709 UTC [6009] STATEMENT:  ALTER INDEX "pages_field_index" RENAME TO "pages_field_idx"
+2026-03-03 20:18:02.713 UTC [6009] ERROR:  relation "pages_component_type_index" does not exist
+2026-03-03 20:18:02.713 UTC [6009] STATEMENT:  ALTER INDEX "pages_component_type_index" RENAME TO "pages_component_type_idx"
 2026-03-03 20:18:02.797 UTC [6009] ERROR:  relation "pages_unique" does not exist
 2026-03-03 20:18:02.797 UTC [6009] STATEMENT:  ALTER INDEX "pages_unique" RENAME TO "pages_uq"
 2026-03-03 20:18:02.801 UTC [6009] ERROR:  relation "pages_documents_index" does not exist
@@ -98,3 +188,19 @@
 2026-03-03 20:18:03.716 UTC [6009] STATEMENT:  ALTER INDEX "strapi_transfer_token_permissions_token_lnk_unique" RENAME TO "strapi_transfer_token_permissions_token_lnk_uq"
 2026-03-03 20:22:39.017 UTC [60] LOG:  checkpoint starting: time
 2026-03-03 20:23:40.857 UTC [60] LOG:  checkpoint complete: wrote 614 buffers (3.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=61.796 s, sync=0.031 s, total=61.840 s; sync files=544, longest=0.002 s, average=0.001 s; distance=2968 kB, estimate=2968 kB; lsn=0/17FE790, redo lsn=0/17FE700
+2026-03-04 16:13:02.006 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 16:13:05.442 UTC [60] LOG:  checkpoint complete: wrote 34 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.385 s, sync=0.011 s, total=3.436 s; sync files=17, longest=0.005 s, average=0.001 s; distance=87 kB, estimate=2680 kB; lsn=0/18146C0, redo lsn=0/1814668
+2026-03-04 18:48:05.589 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 18:48:06.585 UTC [60] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.983 s, sync=0.003 s, total=0.996 s; sync files=7, longest=0.002 s, average=0.001 s; distance=27 kB, estimate=2414 kB; lsn=0/181B340, redo lsn=0/181B2E8
+2026-03-04 18:53:05.681 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 18:53:09.387 UTC [60] LOG:  checkpoint complete: wrote 37 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.682 s, sync=0.006 s, total=3.706 s; sync files=23, longest=0.003 s, average=0.001 s; distance=4 kB, estimate=2173 kB; lsn=0/181C568, redo lsn=0/181C510
+2026-03-04 18:58:05.485 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 18:58:18.954 UTC [60] LOG:  checkpoint complete: wrote 134 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=13.444 s, sync=0.014 s, total=13.469 s; sync files=129, longest=0.002 s, average=0.001 s; distance=129 kB, estimate=1969 kB; lsn=0/183CBC8, redo lsn=0/183CB38
+2026-03-04 19:23:06.465 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 19:23:07.884 UTC [60] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.387 s, sync=0.013 s, total=1.419 s; sync files=10, longest=0.007 s, average=0.002 s; distance=38 kB, estimate=1776 kB; lsn=0/1846418, redo lsn=0/18463C0
+2026-03-04 19:28:06.981 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 19:28:19.466 UTC [60] LOG:  checkpoint complete: wrote 124 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=12.439 s, sync=0.033 s, total=12.486 s; sync files=124, longest=0.008 s, average=0.001 s; distance=103 kB, estimate=1608 kB; lsn=0/1860350, redo lsn=0/18602C0
+2026-03-04 20:33:07.785 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 20:33:09.021 UTC [60] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.215 s, sync=0.007 s, total=1.237 s; sync files=10, longest=0.004 s, average=0.001 s; distance=39 kB, estimate=1452 kB; lsn=0/186A298, redo lsn=0/186A240
+2026-03-04 20:43:07.222 UTC [60] LOG:  checkpoint starting: time
+2026-03-04 20:43:07.926 UTC [60] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.667 s, sync=0.010 s, total=0.704 s; sync files=7, longest=0.005 s, average=0.002 s; distance=2 kB, estimate=1307 kB; lsn=0/186AD30, redo lsn=0/186ACD8

@@ -237,6 +237,35 @@ exports.default = {
         } catch (err) {
             console.error("Failed to seed Landing Page", err);
         }
+
+        try {
+            const publicRole = await strapi.db.query('plugin::users-permissions.role').findOne({
+                where: { type: 'public' }
+            });
+            if (publicRole) {
+                // Enable permissions for blog-post
+                const actions = [
+                    'api::blog-post.blog-post.find',
+                    'api::blog-post.blog-post.findOne',
+                    'api::blog-post.blog-post.create',
+                    'plugin::upload.content-api.upload'
+                ];
+
+                for (const action of actions) {
+                    const permissionFound = await strapi.db.query('plugin::users-permissions.permission').findOne({
+                        where: { role: publicRole.id, action }
+                    });
+                    if (!permissionFound) {
+                        await strapi.db.query('plugin::users-permissions.permission').create({
+                            data: { action, role: publicRole.id }
+                        });
+                        console.log(`Enabled ${action} for public role.`);
+                    }
+                }
+            }
+        } catch (e) {
+            console.error('Failed to set public permissions:', e);
+        }
     },
 };
 

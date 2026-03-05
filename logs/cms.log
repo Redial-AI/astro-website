@@ -2,32 +2,16 @@
 > redialbpo-cms@0.1.0 start
 > strapi start
 
-[2026-03-03 20:18:07.499] info: [discard-drafts] Migration started
-[2026-03-03 20:18:07.820] info: [discard-drafts] Stage 1/5 – cloning published entries into draft rows
-[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 1/5 complete
-[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 2/5 – copying relations and components to drafts
-[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 2/5 complete
-[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 3/5 – fixing existing draft relations
-[2026-03-03 20:18:07.821] info: [discard-drafts] Stage 3/5 complete
-[2026-03-03 20:18:07.822] info: [discard-drafts] Stage 4/5 – fixing existing draft component relations
-[2026-03-03 20:18:07.822] info: [discard-drafts] Stage 4/5 complete
-[2026-03-03 20:18:07.822] info: [discard-drafts] Stage 4b/5 – fixing published component relations to published targets
-[2026-03-03 20:18:07.823] info: [discard-drafts] Stage 4b/5 complete
-[2026-03-03 20:18:07.823] info: [discard-drafts] Stage 5/5 – updating foreign key references to draft targets
-[2026-03-03 20:18:07.823] info: [discard-drafts] Stage 5/5 complete
-[2026-03-03 20:18:07.823] info: [discard-drafts] Migration completed successfully
-[2026-03-03 20:18:14.897] warn: admin.auth.options.expiresIn is deprecated and will be removed in Strapi 6. Please configure admin.auth.sessions.maxRefreshTokenLifespan and admin.auth.sessions.maxSessionLifespan.
-Seeding Landing Page with default blocks...
-Successfully seeded Landing Page!
+[2026-03-04 20:32:44.740] warn: admin.auth.options.expiresIn is deprecated and will be removed in Strapi 6. Please configure admin.auth.sessions.maxRefreshTokenLifespan and admin.auth.sessions.maxSessionLifespan.
 
  Project information
 
 ┌────────────────────┬──────────────────────────────────────────────────┐
-│ Time               │ Tue Mar 03 2026 20:18:19 GMT+0000 (Coordinated … │
-│ Launched in        │ 22906 ms                                         │
+│ Time               │ Wed Mar 04 2026 20:32:45 GMT+0000 (Coordinated … │
+│ Launched in        │ 11806 ms                                         │
 │ Environment        │ production                                       │
-│ Process PID        │ 17                                               │
-│ Version            │ 5.37.1 (node v20.20.0)                           │
+│ Process PID        │ 18                                               │
+│ Version            │ 5.38.0 (node v20.20.0)                           │
 │ Edition            │ Community                                        │
 │ Database           │ postgres                                         │
 │ Database name      │ postgres                                         │
@@ -35,13 +19,144 @@ Successfully seeded Landing Page!
 
  Actions available
 
-One more thing...
-Create your first administrator 💻 by going to the administration panel at:
+Welcome back!
+To manage your project 🚀, go to the administration panel at:
+https://cms.redialbpo.io/admin
 
-┌────────────────────────────────┐
-│ https://cms.redialbpo.io/admin │
-└────────────────────────────────┘
+To access the server ⚡️, go to:
+https://cms.redialbpo.io
 
-[2026-03-03 20:18:19.240] info: Strapi started successfully
-(node:17) DeprecationWarning: Calling client.query() when the client is already executing a query is deprecated and will be removed in pg@9.0. Use asycn/await or an external async flow control mechanism instead.
+[2026-03-04 20:32:45.314] info: Strapi started successfully
+[2026-03-04 20:42:23.159] http: GET / (27 ms) 302
+[2026-03-04 20:42:23.476] http: GET /admin (17 ms) 200
+[2026-03-04 20:42:23.809] http: GET /admin/strapi-B78RCIxA.js (13 ms) 200
+[2026-03-04 20:42:26.799] http: GET /admin/project-type (7 ms) 200
+[2026-03-04 20:42:27.116] http: GET /admin/AuthenticatedLayout-DtU8Iqyc.js (10 ms) 200
+[2026-03-04 20:42:27.127] http: GET /admin/PrivateRoute-831aWy-e.js (15 ms) 200
+[2026-03-04 20:42:27.129] http: GET /admin/index-DdZAG1Xg.js (20 ms) 200
+[2026-03-04 20:42:27.136] http: GET /admin/index-BskwVlVc.js (22 ms) 200
+[2026-03-04 20:42:27.208] http: GET /admin/HomePage-g7Cli1tQ.js (86 ms) 200
+[2026-03-04 20:42:27.215] http: GET /admin/useDragLayer-CmwgaqNg.js (85 ms) 200
+[2026-03-04 20:42:27.223] http: GET /admin/WidgetHelpers-BUV8-Z2w.js (85 ms) 200
+[2026-03-04 20:42:27.583] http: GET /admin/users/me (12 ms) 401
+[2026-03-04 20:42:27.586] http: GET /admin/users/me/permissions (14 ms) 401
+[2026-03-04 20:42:27.592] http: GET /admin/init (24 ms) 200
+[2026-03-04 20:42:35.011] http: GET /api/site-setting?status=published&populate=* (13 ms) 403
+[2026-03-04 20:42:35.021] http: GET /api/landing-page?status=published&populate[blocks][populate]=* (17 ms) 403
+[2026-03-04 20:42:39.377] http: GET /api/landing-page?status=published&populate[blocks][populate]=* (12 ms) 403
+[2026-03-04 20:42:39.383] http: GET /api/site-setting?status=published&populate=* (15 ms) 403
+[2026-03-04 20:42:57.701] http: GET /admin/information (3 ms) 401
+[2026-03-04 20:42:58.060] http: POST /admin/access-token (63 ms) 200
+[2026-03-04 20:42:58.401] http: GET /admin/information (53 ms) 200
+[2026-03-04 20:42:58.730] http: GET /admin/license-limit-information (11 ms) 200
+[2026-03-04 20:42:58.737] http: GET /admin/init (15 ms) 200
+[2026-03-04 20:42:58.913] http: GET /admin/homepage/layout (179 ms) 200
+[2026-03-04 20:42:58.918] http: GET /admin/guided-tour-meta (189 ms) 200
+[2026-03-04 20:42:59.103] http: GET /admin/Widgets-DWkfA2xc.js (3 ms) 200
+[2026-03-04 20:42:59.603] http: GET /content-manager/homepage/count-documents (206 ms) 200
+[2026-03-04 20:42:59.608] http: GET /admin/homepage/key-statistics (208 ms) 200
+[2026-03-04 20:43:03.135] http: GET /admin/layout-BrZJPQ5k.js (15 ms) 200
+[2026-03-04 20:43:03.142] http: GET /admin/CardDragPreview-BXn3mcga.js (16 ms) 200
+[2026-03-04 20:43:03.147] http: GET /admin/hooks-DBpAyZJ3.js (19 ms) 200
+[2026-03-04 20:43:03.724] http: GET /content-manager/init (283 ms) 200
+[2026-03-04 20:43:04.325] http: GET /content-manager/content-types-settings (824 ms) 200
+[2026-03-04 20:43:18.490] http: GET /admin/403 (9 ms) 200
+[2026-03-04 20:43:20.799] http: GET /admin/strapi-B78RCIxA.js (24 ms) 200
+[2026-03-04 20:43:22.082] http: GET /favicon.ico (2 ms) 200
+[2026-03-04 20:43:24.951] http: GET /admin/ (8 ms) 200
+[2026-03-04 20:43:25.520] http: GET /admin/strapi-B78RCIxA.js (26 ms) 200
+[2026-03-04 20:43:31.225] http: GET /admin/project-type (27 ms) 200
+[2026-03-04 20:43:31.662] http: GET /admin/init (43 ms) 200
+[2026-03-04 20:43:31.738] http: GET /admin/users/me (111 ms) 200
+[2026-03-04 20:43:31.821] http: GET /admin/users/me/permissions (190 ms) 200
+[2026-03-04 20:43:32.104] http: GET /admin/information (107 ms) 200
+[2026-03-04 20:43:32.424] http: GET /admin/license-limit-information (3 ms) 200
+[2026-03-04 20:43:32.518] http: GET /admin/Widgets-D0dYxXD4.js (10 ms) 200
+[2026-03-04 20:43:32.624] http: GET /admin/homepage/layout (190 ms) 200
+[2026-03-04 20:43:32.711] http: GET /admin/guided-tour-meta (279 ms) 200
+[2026-03-04 20:43:33.034] http: GET /admin/homepage/key-statistics (331 ms) 200
+[2026-03-04 20:43:33.125] http: GET /content-manager/homepage/count-documents (498 ms) 200
+[2026-03-04 20:43:33.804] http: GET /content-manager/homepage/recent-documents?action=update (898 ms) 200
+[2026-03-04 20:43:33.906] http: GET /content-manager/homepage/recent-documents?action=publish (989 ms) 200
+[2026-03-04 20:43:37.846] http: GET /content-manager/init (25 ms) 200
+[2026-03-04 20:43:37.933] http: GET /content-manager/content-types-settings (115 ms) 200
+[2026-03-04 20:43:38.300] http: GET /content-manager/init (71 ms) 200
+[2026-03-04 20:43:38.907] http: GET /content-manager/content-types/api::landing-page.landing-page/configuration (656 ms) 200
+[2026-03-04 20:43:39.315] http: GET /content-manager/single-types/api::landing-page.landing-page? (1069 ms) 200
+[2026-03-04 20:43:39.915] http: GET /i18n/ai-localization-jobs/single-types/api::landing-page.landing-page (112 ms) 200
+[2026-03-04 20:43:39.931] http: GET /i18n/locales (133 ms) 200
+[2026-03-04 20:43:39.998] http: GET /i18n/settings (182 ms) 200
+[2026-03-04 20:43:40.002] http: GET /content-manager/preview/url/api::landing-page.landing-page?locale=&status=published (194 ms) 200
+[2026-03-04 20:43:40.003] http: GET /admin/ai-feature-config (180 ms) 200
+[2026-03-04 20:43:40.398] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (570 ms) 200
+[2026-03-04 20:43:48.941] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (390 ms) 200
+[2026-03-04 20:43:50.317] http: PUT /content-manager/single-types/api::landing-page.landing-page? (2374 ms) 200
+[2026-03-04 20:43:51.000] http: GET /i18n/ai-localization-jobs/single-types/api::landing-page.landing-page (354 ms) 200
+[2026-03-04 20:43:51.008] http: GET /content-manager/homepage/count-documents (368 ms) 200
+[2026-03-04 20:43:51.213] http: GET /content-manager/homepage/recent-documents?action=update (583 ms) 200
+[2026-03-04 20:43:51.306] http: GET /content-manager/homepage/recent-documents?action=publish (671 ms) 200
+[2026-03-04 20:43:51.405] http: GET /content-manager/single-types/api::landing-page.landing-page? (779 ms) 200
+[2026-03-04 20:43:51.916] http: GET /content-manager/preview/url/api::landing-page.landing-page?locale=&status=modified (199 ms) 200
+[2026-03-04 20:43:52.024] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (302 ms) 200
+[2026-03-04 20:43:56.737] http: POST /content-manager/single-types/api::landing-page.landing-page/actions/publish? (2163 ms) 200
+[2026-03-04 20:43:57.323] http: GET /i18n/ai-localization-jobs/single-types/api::landing-page.landing-page (224 ms) 200
+[2026-03-04 20:43:57.503] http: GET /content-manager/homepage/count-documents (412 ms) 200
+[2026-03-04 20:43:57.725] http: GET /content-manager/homepage/recent-documents?action=update (645 ms) 200
+[2026-03-04 20:43:57.799] http: GET /content-manager/homepage/recent-documents?action=publish (715 ms) 200
+[2026-03-04 20:43:57.823] http: GET /content-manager/single-types/api::landing-page.landing-page? (747 ms) 200
+[2026-03-04 20:43:58.255] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (130 ms) 200
+[2026-03-04 20:44:13.605] http: GET /api/landing-page?status=published&populate[blocks][populate]=* (6 ms) 403
+[2026-03-04 20:44:13.609] http: GET /api/site-setting?status=published&populate=* (7 ms) 403
+[2026-03-04 20:44:32.720] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (418 ms) 200
+[2026-03-04 20:44:33.336] http: PUT /content-manager/single-types/api::landing-page.landing-page? (1127 ms) 200
+[2026-03-04 20:44:34.026] http: GET /i18n/ai-localization-jobs/single-types/api::landing-page.landing-page (318 ms) 200
+[2026-03-04 20:44:34.136] http: GET /content-manager/homepage/count-documents (500 ms) 200
+[2026-03-04 20:44:34.368] http: GET /content-manager/homepage/recent-documents?action=update (748 ms) 200
+[2026-03-04 20:44:34.408] http: GET /content-manager/homepage/recent-documents?action=publish (779 ms) 200
+[2026-03-04 20:44:34.442] http: GET /content-manager/single-types/api::landing-page.landing-page? (827 ms) 200
+[2026-03-04 20:44:34.915] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (151 ms) 200
+[2026-03-04 20:44:36.930] http: POST /content-manager/single-types/api::landing-page.landing-page/actions/publish? (1533 ms) 200
+[2026-03-04 20:44:38.116] http: GET /i18n/ai-localization-jobs/single-types/api::landing-page.landing-page (795 ms) 200
+[2026-03-04 20:44:38.126] http: GET /api/landing-page?status=published&populate[blocks][populate]=* (9 ms) 403
+[2026-03-04 20:44:38.198] http: GET /content-manager/homepage/count-documents (897 ms) 200
+[2026-03-04 20:44:38.202] http: GET /api/site-setting?status=published&populate=* (73 ms) 403
+[2026-03-04 20:44:38.338] http: GET /content-manager/homepage/recent-documents?action=publish (1103 ms) 200
+[2026-03-04 20:44:38.414] http: GET /content-manager/homepage/recent-documents?action=update (1183 ms) 200
+[2026-03-04 20:44:38.509] http: GET /content-manager/single-types/api::landing-page.landing-page? (1290 ms) 200
+[2026-03-04 20:44:39.042] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (162 ms) 200
+[2026-03-04 20:44:40.908] http: GET /api/landing-page?status=published&populate[blocks][populate]=* (6 ms) 403
+[2026-03-04 20:44:40.911] http: GET /api/site-setting?status=published&populate=* (6 ms) 403
+[2026-03-04 20:44:49.336] http: GET /api/site-setting?status=published&populate=* (4 ms) 403
+[2026-03-04 20:44:49.337] http: GET /api/landing-page?status=published&populate[blocks][populate]=* (4 ms) 403
+[2026-03-04 20:44:52.403] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (121 ms) 200
+[2026-03-04 20:44:53.407] http: GET /admin/en.json-DCS336wa.js (22 ms) 200
+[2026-03-04 20:44:53.408] http: GET /admin/en.json-ClQ4xpLD.js (8 ms) 200
+[2026-03-04 20:44:53.410] http: GET /admin/en.json-BfUxjZI3.js (7 ms) 200
+[2026-03-04 20:44:53.413] http: GET /admin/en.json-DHPNOFD5.js (7 ms) 200
+[2026-03-04 20:44:53.416] http: GET /admin/hooks-DBpAyZJ3.js (8 ms) 200
+[2026-03-04 20:44:53.420] http: GET /admin/en.json-DmZ2H-qr.js (9 ms) 200
+[2026-03-04 20:44:53.421] http: GET /admin/en.json-HhrraMjB.js (8 ms) 200
+[2026-03-04 20:44:53.422] http: GET /admin/en.json-Cy-wIFSM.js (5 ms) 200
+[2026-03-04 20:44:53.428] http: GET /admin/en.json-D9sQWo1q.js (4 ms) 200
+[2026-03-04 20:44:53.428] http: GET /admin/en-GB-C8SI_WDh.js (3 ms) 200
+[2026-03-04 20:44:53.903] http: GET api:api/admin/content-manager/single-types/api::landing-page.landing-page (5 ms) 200
+[2026-03-04 20:44:54.422] http: GET /admin/project-type (3 ms) 200
+[2026-03-04 20:44:54.805] http: GET /admin/init (41 ms) 200
+[2026-03-04 20:44:54.819] http: GET /admin/users/me (57 ms) 200
+[2026-03-04 20:44:54.909] http: GET /admin/users/me/permissions (149 ms) 200
+[2026-03-04 20:44:55.106] http: GET /admin/information (19 ms) 200
+[2026-03-04 20:44:55.416] http: GET /admin/license-limit-information (17 ms) 200
+[2026-03-04 20:44:55.507] http: GET /content-manager/init (108 ms) 200
+[2026-03-04 20:44:55.521] http: GET /content-manager/content-types-settings (118 ms) 200
+[2026-03-04 20:44:55.954] http: GET /content-manager/init (23 ms) 200
+[2026-03-04 20:44:56.024] http: GET /content-manager/content-types/api::landing-page.landing-page/configuration (65 ms) 200
+[2026-03-04 20:44:56.334] http: GET /content-manager/single-types/api::landing-page.landing-page? (378 ms) 200
+[2026-03-04 20:44:56.909] http: GET /admin/ai-feature-config (175 ms) 200
+[2026-03-04 20:44:56.909] http: GET /i18n/locales (174 ms) 200
+[2026-03-04 20:44:56.910] http: GET /i18n/settings (112 ms) 200
+[2026-03-04 20:44:57.013] http: GET /i18n/ai-localization-jobs/single-types/api::landing-page.landing-page (275 ms) 200
+[2026-03-04 20:44:57.037] http: GET /content-manager/preview/url/api::landing-page.landing-page?locale=&status=published (229 ms) 200
+[2026-03-04 20:44:57.124] http: GET /content-manager/single-types/api::landing-page.landing-page/actions/countDraftRelations? (322 ms) 200
+(node:18) DeprecationWarning: Calling client.query() when the client is already executing a query is deprecated and will be removed in pg@9.0. Use asycn/await or an external async flow control mechanism instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
+(node:18) [DEP0170] DeprecationWarning: The URL api::landing-page.landing-page is invalid. Future versions of Node.js will throw an error.

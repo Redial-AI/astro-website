@@ -17,10 +17,10 @@ import type {
 const isNode = typeof process !== "undefined" && process?.env != null;
 
 const STRAPI_INTERNAL_URL =
-    (isNode ? process.env.STRAPI_INTERNAL_URL : undefined) ??
-    (isNode ? process.env.STRAPI_URL : undefined) ??
-    import.meta.env.STRAPI_URL ??
-    "http://localhost:1337";
+    ((isNode ? process.env.STRAPI_INTERNAL_URL : undefined) ??
+        (isNode ? process.env.STRAPI_URL : undefined) ??
+        import.meta.env.STRAPI_URL ??
+        "http://localhost:1337").replace(/\/$/, "");
 
 const STRAPI_PUBLIC_URL =
     (isNode ? process.env.PUBLIC_STRAPI_URL : undefined) ??

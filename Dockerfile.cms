@@ -1,0 +1,51 @@
+FROM node:20-alpine AS build
+
+WORKDIR /app
+
+# Install native compilation dependencies needed for Strapi plugins
+RUN apk add --no-cache build-base python3 make g++ vips-dev
+
+# Copy root workspace definitions
+COPY package.json package-lock.json ./
+
+# Copy workspace package definitions
+COPY cms/package.json ./cms/
+COPY astro-web/package.json ./astro-web/
+
+# Install dependencies for all workspaces (this layer will be cached)
+RUN npm ci
+
+# Now copy the source code for cms
+COPY cms ./cms/
+
+# Build the Strapi project
+RUN npm run build --workspace cms
+
+# Remove devDependencies to keep the runtime image lean
+RUN npm ci --omit=dev
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Strapi needs vips for image processing (Sharp) at runtime
+RUN apk add --no-cache vips
+
+# Copy built application and pruned node_modules from the build stage
+COPY --from=build /app/package.json /app/package-lock.json ./
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/cms ./cms
+
+WORKDIR /app/cms
+
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=1337
+ENV PATH=/app/node_modules/.bin:/app/cms/node_modules/.bin:$PATH
+
+RUN chown -R node:node /app
+USER node
+
+EXPOSE 1337
+
+CMD ["npm", "run", "start"]

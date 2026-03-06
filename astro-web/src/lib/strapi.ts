@@ -22,7 +22,7 @@ const STRAPI_INTERNAL_URL =
         import.meta.env.STRAPI_URL ??
         "http://localhost:1337").replace(/\/$/, "");
 
-const STRAPI_PUBLIC_URL =
+export const STRAPI_PUBLIC_URL =
     (isNode ? process.env.PUBLIC_STRAPI_URL : undefined) ??
     import.meta.env.PUBLIC_STRAPI_URL ??
     STRAPI_INTERNAL_URL;

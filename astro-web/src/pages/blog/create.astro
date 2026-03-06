@@ -1,13 +1,13 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { getLandingPageData } from "../../lib/strapi";
+import { getLandingPageData, STRAPI_PUBLIC_URL } from "../../lib/strapi";
 import "../../styles/globals.css";
 
 export const prerender = false;
 
 const isPreview = Astro.cookies.has("astro-preview");
 const data = await getLandingPageData(isPreview);
-const STRAPI_URL = process.env.PUBLIC_STRAPI_URL || import.meta.env.PUBLIC_STRAPI_URL || "http://localhost:1337";
+const STRAPI_URL = STRAPI_PUBLIC_URL;
 ---
 
 <Base title="Create Blog Post - Redial BPO" description="Create a new blog post.">

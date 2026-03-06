@@ -29,11 +29,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Lowercase Repository Name
+        run: |
+          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
       - name: Extract metadata (tags, labels) for Docker (Astro)
         id: meta-astro
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}-astro
+          images: ghcr.io/${{ env.REPO }}-astro
           tags: |
             type=sha,format=long
             type=raw,value=latest
@@ -63,11 +67,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Lowercase Repository Name
+        run: |
+          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
       - name: Extract metadata (tags, labels) for Docker (CMS)
         id: meta-cms
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}-cms
+          images: ghcr.io/${{ env.REPO }}-cms
           tags: |
             type=sha,format=long
             type=raw,value=latest

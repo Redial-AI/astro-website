@@ -1,0 +1,43 @@
+FROM node:20-alpine AS base
+WORKDIR /app
+
+# Enable corepack for modern package management if needed, but we'll stick to npm
+RUN npm install -g npm@latest
+
+FROM base AS builder
+WORKDIR /app
+
+# Copy root workspace definitions
+COPY package.json package-lock.json ./
+# Copy workspace package definitions first to cache dependencies
+COPY astro-web/package.json ./astro-web/
+# If cms is needed for shared types/configs, copy its package.json too
+COPY cms/package.json ./cms/
+
+# Install dependencies (this layer will be heavily cached unless packages change)
+RUN npm ci
+
+# Now copy the source code for astro
+COPY astro-web ./astro-web/
+
+# Build the Astro project
+RUN npm run build --workspace astro-web
+
+FROM node:20-alpine AS runner
+WORKDIR /app/astro-web
+
+# Copy necessary files from builder
+COPY --from=builder /app/package.json /app/package-lock.json ../
+COPY --from=builder /app/astro-web/package.json ./
+# Install production dependencies only
+RUN npm ci --omit=dev --workspace astro-web
+
+COPY --from=builder /app/astro-web/dist ./dist
+
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=4321
+
+EXPOSE 4321
+
+CMD ["node", "./dist/server/entry.mjs"]

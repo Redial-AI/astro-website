@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/node": "^9.5.4",
     "astro": "^5.17.1",
+    "es-module-lexer": "^2.0.0",
     "marked": "^15.0.0",
     "unstorage": "^1.15.0"
   }

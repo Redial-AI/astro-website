@@ -1,0 +1,53 @@
+---
+import { marked } from "marked";
+
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+const html = marked.parse(content || "");
+---
+
+<section class="page-text-block">
+  <div class="container">
+    <div class="page-text-block-body" set:html={html} />
+  </div>
+</section>
+
+<style>
+  .page-text-block {
+    padding: 2.5rem 0;
+  }
+
+  .page-text-block-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .page-text-block-body :global(h2) {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .page-text-block-body :global(h3) {
+    font-size: 1.35rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .page-text-block-body :global(ul),
+  .page-text-block-body :global(ol) {
+    margin: 1.25rem 0 1.25rem 1.5rem;
+  }
+
+  .page-text-block-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .page-text-block-body :global(a) {
+    color: var(--teal-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
+

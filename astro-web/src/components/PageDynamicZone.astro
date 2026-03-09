@@ -1,0 +1,22 @@
+---
+import type { SiteSettings } from "../types/landing";
+import PageHero from "./PageHero.astro";
+import TextBlock from "./TextBlock.astro";
+
+interface Props {
+  blocks: any[];
+  settings?: SiteSettings;
+}
+
+const { blocks = [] } = Astro.props;
+---
+
+{blocks.map((block: any) => {
+  const c = block.__component;
+  return (
+    c === "blocks.hero" ? <PageHero title={block.title} description={block.description} /> :
+    c === "blocks.text-block" ? <TextBlock content={block.content} /> :
+    null
+  );
+})}
+

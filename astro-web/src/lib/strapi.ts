@@ -403,6 +403,13 @@ export interface BlogPost {
     createdAt: string;
 }
 
+export interface Page {
+    id: number;
+    slug: string;
+    title: string;
+    blocks: any[];
+}
+
 export async function getBlogPosts(isPreview = false): Promise<BlogPost[]> {
     const statusParam = isPreview ? "draft" : "published";
 
@@ -457,5 +464,31 @@ export async function getBlogPostBySlug(slug: string, isPreview = false): Promis
         content: item.content || '',
         images: toMediaArray(item.images),
         createdAt: item.createdAt || ''
+    };
+}
+
+export async function getPageBySlug(slug: string, isPreview = false): Promise<Page | null> {
+    const statusParam = isPreview ? "draft" : "published";
+
+    const response = await fetchFromStrapi(
+        `/api/pages?filters[slug][$eq]=${slug}&status=${statusParam}&populate[blocks][populate]=*`,
+    );
+
+    if (!response || typeof response !== "object" || !("data" in response)) {
+        return null;
+    }
+
+    const data = (response as { data?: unknown }).data;
+    if (!Array.isArray(data) || data.length === 0) {
+        return null;
+    }
+
+    const item = data[0] as any;
+
+    return {
+        id: item.id,
+        slug: item.slug || "",
+        title: item.title || "",
+        blocks: Array.isArray(item.blocks) ? item.blocks : [],
     };
 }

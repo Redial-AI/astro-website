@@ -10,6 +10,8 @@ pnpm-debug.log*
 
 .DS_Store
 
+*.log
+
 cms/.cache
 cms/.tmp
 cms/build

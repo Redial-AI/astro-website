@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero-title">
+      {title}
+    </h1>
+    {description && (
+      <p class="page-hero-description">
+        {description}
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding: 4rem 0 2rem;
+    background: radial-gradient(circle at top left, rgba(40, 199, 172, 0.12), transparent),
+      radial-gradient(circle at bottom right, rgba(15, 45, 78, 0.08), transparent);
+  }
+
+  .page-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--ink-950);
+    margin-bottom: 1rem;
+  }
+
+  .page-hero-description {
+    max-width: 42rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--ink-800);
+  }
+</style>
+

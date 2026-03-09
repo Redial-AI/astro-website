@@ -29,8 +29,8 @@ WORKDIR /app/astro-web
 # Copy necessary files from builder
 COPY --from=builder /app/package.json /app/package-lock.json ../
 COPY --from=builder /app/astro-web/package.json ./
-# Install production dependencies only
-RUN npm ci --omit=dev --workspace astro-web
+# Install dependencies for the astro-web workspace (including those normally marked as dev)
+RUN npm ci --workspace astro-web
 
 COPY --from=builder /app/astro-web/dist ./dist
 

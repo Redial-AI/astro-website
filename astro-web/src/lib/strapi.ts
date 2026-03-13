@@ -45,14 +45,22 @@ const toArray = <T>(value: unknown): T[] => (Array.isArray(value) ? value : []);
 const unwrapSingle = <T extends Record<string, unknown>>(
     payload: unknown,
 ): T | null => {
-    const data = (payload as { data?: unknown } | null)?.data;
-
-    if (!data || Array.isArray(data)) {
+    if (!payload || typeof payload !== "object") {
         return null;
     }
 
-    const maybeV4Attributes = (data as { attributes?: T }).attributes;
-    return (maybeV4Attributes ?? data) as T;
+    // Strapi 4 style: { data: { attributes: ... } } or { data: { ... } }
+    if ("data" in payload && (payload as any).data !== null) {
+        const data = (payload as { data: unknown }).data;
+        if (Array.isArray(data)) {
+            return null;
+        }
+        const maybeV4Attributes = (data as { attributes?: T }).attributes;
+        return (maybeV4Attributes ?? data) as T;
+    }
+
+    // Strapi 5 style or already unwrapped: { ... }
+    return payload as T;
 };
 
 const withBaseUrl = (url: string): string => {
@@ -310,6 +318,15 @@ const parseBlocks = (value: unknown, fallback: any[]): any[] => {
                     __component: "sections.cta-panel",
                     ...parseCtaPanel(block, fallback.find((f) => f.__component === "sections.cta-panel")),
                 };
+            case "sections.hubspot-form-section":
+                const formData = unwrapSingle<Record<string, unknown>>(block.form);
+                return {
+                    __component: "sections.hubspot-form-section",
+                    hubspotFormId: formData ? toString(formData.formId) : "",
+                    title: toString(block.title),
+                    subtitle: toString(block.subtitle),
+                    region: formData ? toString(formData.region, "na1") : "na1",
+                };
             default:
                 return block;
         }
@@ -324,6 +341,14 @@ const parseSiteSettings = (
         return fallback;
     }
 
+    const blogFormData = unwrapSingle<Record<string, unknown>>(value.blogForm);
+    const blogForm = blogFormData && blogFormData.formId ? {
+        formId: toString(blogFormData.formId),
+        region: toString(blogFormData.region, "na1")
+    } : null;
+
+
+
     return {
         siteName: toString(value.siteName, fallback.siteName),
         logo: toMediaUrl(value.logo) ?? fallback.logo,
@@ -337,6 +362,7 @@ const parseSiteSettings = (
         contactEmail: toString(value.contactEmail, fallback.contactEmail ?? ""),
         linkedInUrl: toString(value.linkedInUrl, fallback.linkedInUrl ?? ""),
         footerCopy: toString(value.footerCopy, fallback.footerCopy),
+        blogForm,
     };
 };
 
@@ -374,7 +400,7 @@ export async function getLandingPageData(isPreview = false): Promise<LandingPage
     ]);
 
     const landing = unwrapSingle<Record<string, unknown>>(landingResponse);
-    const settings = unwrapSingle<Record<string, unknown>>(settingResponse);
+    const settingsRaw = unwrapSingle<Record<string, unknown>>(settingResponse);
 
     if (!landing) {
         return defaultLandingPageData;
@@ -387,7 +413,7 @@ export async function getLandingPageData(isPreview = false): Promise<LandingPage
         metaDescription: toString(landing.metaDescription, fallback.metaDescription),
         blocks: parseBlocks(landing.blocks, fallback.blocks),
         footerNote: toString(landing.footerNote, fallback.footerNote ?? ""),
-        settings: parseSiteSettings(settings, fallback.settings),
+        settings: parseSiteSettings(settingsRaw, fallback.settings),
     };
 }
 

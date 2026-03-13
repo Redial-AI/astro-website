@@ -76,6 +76,19 @@ export interface SectionsHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsHubspotFormSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_hubspot_form_sections';
+  info: {
+    description: 'Embeds a HubSpot form by its Form ID. Editors can drop this into any page and choose which form to show.';
+    displayName: 'HubSpot Form';
+  };
+  attributes: {
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Get in Touch'>;
+  };
+}
+
 export interface SectionsIndustriesSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_industries_sections';
   info: {
@@ -300,6 +313,7 @@ declare module '@strapi/strapi' {
       'sections.cta-panel': SectionsCtaPanel;
       'sections.faq-section': SectionsFaqSection;
       'sections.hero': SectionsHero;
+      'sections.hubspot-form-section': SectionsHubspotFormSection;
       'sections.industries-section': SectionsIndustriesSection;
       'sections.metrics-section': SectionsMetricsSection;
       'sections.offices-section': SectionsOfficesSection;

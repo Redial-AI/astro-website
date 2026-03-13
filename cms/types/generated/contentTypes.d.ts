@@ -464,6 +464,36 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFormForm extends Struct.CollectionTypeSchema {
+  collectionName: 'forms';
+  info: {
+    description: 'HubSpot Form';
+    displayName: 'Form';
+    pluralName: 'forms';
+    singularName: 'form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    formId: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::form.form'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.Enumeration<['na1', 'na2', 'eu1']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'na1'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
   collectionName: 'landing_pages';
   info: {
@@ -489,6 +519,7 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
         'sections.faq-section',
         'sections.cta-panel',
         'sections.offices-section',
+        'sections.hubspot-form-section',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -526,7 +557,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<['blocks.hero', 'blocks.text-block']>;
+    blocks: Schema.Attribute.DynamicZone<
+      ['blocks.hero', 'blocks.text-block', 'sections.hubspot-form-section']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -554,6 +587,7 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blogForm: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     contactEmail: Schema.Attribute.Email;
     contactPhone: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -1096,6 +1130,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::form.form': ApiFormForm;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::page.page': ApiPagePage;
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;

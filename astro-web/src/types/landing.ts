@@ -78,6 +78,7 @@ export type SiteSettings = {
     contactEmail?: string;
     linkedInUrl?: string;
     footerCopy: string;
+    blogForm?: { formId: string; region: string } | null;
 };
 
 export type LandingPageData = {

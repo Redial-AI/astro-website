@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_hubspot_form_sections",
+  "info": {
+    "displayName": "HubSpot Form",
+    "description": "Embeds a HubSpot form by its Form ID. Editors can drop this into any page and choose which form to show."
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Get in Touch"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    }
+  }
+}

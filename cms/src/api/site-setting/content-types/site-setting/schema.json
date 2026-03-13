@@ -47,6 +47,11 @@
     "footerCopy": {
       "type": "string",
       "default": "Redial BPO. All rights reserved."
+    },
+    "blogForm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
     }
   }
 }

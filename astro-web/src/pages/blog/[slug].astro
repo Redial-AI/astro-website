@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import HubSpotForm from "../../components/HubSpotForm.astro";
 import { getLandingPageData, getBlogPostBySlug } from "../../lib/strapi";
 import { marked } from "marked";
 import "../../styles/globals.css";
@@ -19,6 +20,8 @@ if (!post) {
 }
 
 const parsedContent = marked.parse(post.content || "");
+const HUBSPOT_PORTAL_ID =
+  process.env.HUBSPOT_PORTAL_ID || import.meta.env.HUBSPOT_PORTAL_ID || "";
 ---
 
 <Base title={`${post.title} - Redial BPO`} description={post.description}>
@@ -100,6 +103,15 @@ const parsedContent = marked.parse(post.content || "");
     <article class="post-content" style="font-size: 1.125rem; line-height: 1.7; color: var(--ink-950);">
       <div set:html={parsedContent} />
     </article>
+
+    {HUBSPOT_PORTAL_ID && data.settings.blogForm?.formId && (
+      <HubSpotForm
+        portalId={HUBSPOT_PORTAL_ID}
+        formId={data.settings.blogForm.formId}
+        region={data.settings.blogForm.region}
+        title="Talk to Redial BPO"
+      />
+    )}
   </main>
 
   <footer class="site-footer">

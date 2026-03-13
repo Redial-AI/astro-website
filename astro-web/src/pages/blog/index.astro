@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import HubSpotForm from "../../components/HubSpotForm.astro";
 import { getLandingPageData, getBlogPosts } from "../../lib/strapi";
 import "../../styles/globals.css";
 
@@ -10,6 +11,10 @@ const [data, posts] = await Promise.all([
   getLandingPageData(isPreview),
   getBlogPosts(isPreview)
 ]);
+
+const HUBSPOT_PORTAL_ID =
+  process.env.HUBSPOT_PORTAL_ID || import.meta.env.HUBSPOT_PORTAL_ID || "";
+
 ---
 
 <Base title="Blog | Redial BPO" description="Read the latest blog posts from Redial BPO.">
@@ -80,6 +85,18 @@ const [data, posts] = await Promise.all([
             </div>
           </a>
         ))}
+      </div>
+    )}
+
+    {HUBSPOT_PORTAL_ID && data.settings.blogForm?.formId && (
+      <div style="margin-top: 4rem;">
+        <HubSpotForm
+          portalId={HUBSPOT_PORTAL_ID}
+          formId={data.settings.blogForm.formId}
+          region={data.settings.blogForm.region}
+          title="Stay in the Loop"
+          subtitle="Subscribe to get the latest insights on BPO, outsourcing, and customer experience."
+        />
       </div>
     )}
   </main>

@@ -10,6 +10,7 @@ import Testimonials from "./Testimonials.astro";
 import Faq from "./Faq.astro";
 import Offices from "./Offices.astro";
 import CtaPanel from "./CtaPanel.astro";
+import HubSpotFormSection from "./HubSpotFormSection.astro";
 import type { SiteSettings } from "../types/landing";
 
 interface Props {
@@ -34,6 +35,7 @@ const { blocks = [], settings } = Astro.props;
     c === "sections.faq-section" ? <Faq {...block} /> :
     c === "sections.offices-section" ? <Offices {...block} /> :
     c === "sections.cta-panel" ? <CtaPanel {...block} /> :
+    c === "sections.hubspot-form-section" ? <HubSpotFormSection {...block} /> :
     null
   );
 })}

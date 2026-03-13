@@ -1,0 +1,113 @@
+---
+interface Props {
+  portalId: string;
+  formId: string;
+  region?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  portalId,
+  formId,
+  region = "na1",
+  title = "Interested in similar outcomes?",
+  subtitle = "Share your details and our team will follow up.",
+} = Astro.props;
+
+const targetId = `hubspot-form-${formId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
+---
+
+<section class="hs-form-card">
+  <h2 class="hs-form-title">{title}</h2>
+  {subtitle && <p class="hs-form-subtitle">{subtitle}</p>}
+  <div id={targetId} class="hs-form-target"></div>
+</section>
+
+<script define:vars={{ portalId, formId, region, targetId }}>
+  (function () {
+    const MAX_RETRIES = 20;
+    const RETRY_INTERVAL = 300;
+    let retries = 0;
+
+    function renderForm() {
+      const target = document.getElementById(targetId);
+      if (!target || target.dataset.hubspotLoaded === "true") return;
+
+      if (
+        typeof window.hbspt === "undefined" ||
+        !window.hbspt.forms ||
+        !window.hbspt.forms.create
+      ) {
+        if (retries++ < MAX_RETRIES) {
+          setTimeout(renderForm, RETRY_INTERVAL);
+        }
+        return;
+      }
+
+      target.dataset.hubspotLoaded = "true";
+      window.hbspt.forms.create({
+        region,
+        portalId,
+        formId,
+        target: `#${targetId}`,
+      });
+    }
+
+    function loadFormsScript() {
+      const existing = document.getElementById("hs-forms-script");
+      if (existing) {
+        if (existing.dataset.loaded === "true") {
+          renderForm();
+        } else {
+          existing.addEventListener("load", renderForm, { once: true });
+        }
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = "hs-forms-script";
+      script.src = "https://js.hsforms.net/forms/embed/v2.js";
+      script.async = true;
+      script.defer = true;
+      script.addEventListener(
+        "load",
+        function () {
+          script.dataset.loaded = "true";
+          renderForm();
+        },
+        { once: true }
+      );
+      document.head.appendChild(script);
+    }
+
+    loadFormsScript();
+  })();
+</script>
+
+<style>
+  .hs-form-card {
+    margin-top: 3rem;
+    background: linear-gradient(135deg, rgba(18, 184, 166, 0.04), rgba(15, 45, 78, 0.03));
+    border: 1px solid rgba(15, 45, 78, 0.08);
+    border-radius: var(--radius-lg, 1rem);
+    padding: 2.5rem;
+  }
+
+  .hs-form-title {
+    font-family: var(--font-display, serif);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink-950, #0f0f0f);
+  }
+
+  .hs-form-subtitle {
+    margin-bottom: 1.5rem;
+    color: var(--ink-800, #444);
+    font-size: 1.05rem;
+  }
+
+  .hs-form-target {
+    min-height: 60px;
+  }
+</style>

@@ -109,7 +109,20 @@ The current `cms/Dockerfile` is now self-contained and can be built directly fro
 - Optionally set `STRAPI_API_TOKEN` if you keep content private.
 - Ensure CORS is configured in Strapi for your frontend domain.
 
-## 7. Why this structure
+## 7. HubSpot (chatbot + blog forms)
+
+The frontend now supports HubSpot out of the box:
+
+- Global HubSpot tracking/chatbot script loads when `HUBSPOT_PORTAL_ID` is set.
+- Blog detail pages render a HubSpot form when both `HUBSPOT_PORTAL_ID` and `HUBSPOT_BLOG_FORM_ID` are set.
+
+Environment variables:
+
+- `HUBSPOT_PORTAL_ID`: your HubSpot portal ID.
+- `HUBSPOT_REGION`: HubSpot region for forms (`na1` by default).
+- `HUBSPOT_BLOG_FORM_ID`: form ID used below each blog post.
+
+## 8. Why this structure
 
 - Strapi components keep sections modular and easy to maintain.
 - Single types are used for one-page marketing content and global site settings.

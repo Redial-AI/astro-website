@@ -7,6 +7,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const HUBSPOT_PORTAL_ID =
+  process.env.HUBSPOT_PORTAL_ID || import.meta.env.HUBSPOT_PORTAL_ID;
 ---
 
 <!doctype html>
@@ -26,5 +28,14 @@ const { title, description } = Astro.props;
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <slot />
+    {HUBSPOT_PORTAL_ID && (
+      <script
+        is:inline
+        async
+        defer
+        id="hs-script-loader"
+        src={`https://js.hs-scripts.com/${HUBSPOT_PORTAL_ID}.js`}
+      ></script>
+    )}
   </body>
 </html>
